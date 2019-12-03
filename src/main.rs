@@ -13,7 +13,7 @@ fn lines_from_file<P>(filename: &P) -> Result<Vec<String>, io::Error>
 where
     P: AsRef<Path>,
 {
-    let file = try!(File::open(filename));
+    let file = File::open(filename)?;
     let buf = BufReader::new(file);
     Ok(buf
         .lines()
